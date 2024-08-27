@@ -7,13 +7,16 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>All Movies</h1>
-    <div v-for="movie in movies" v-bind:key="movie.id">
-      <h2>{{ movie.title }} [{{ movie.year }}]</h2>
-      <img v-bind:src="movie.image" width="400" />
-      <h3>{{ movie.genre }}</h3>
-      <p>{{ movie.description }}</p>
+  <div class="container mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-8">Movie Collection</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div v-for="movie in movies" :key="movie.id" class="movie-card flex flex-col items-center text-center p-4">
+        <img :src="movie.image" alt="Movie Poster" class="movie-image mb-4 rounded-lg" />
+        <h2 class="movie-title text-2xl font-bold mb-2">{{ movie.title }}</h2>
+        <p class="movie-year text-lg text-gray-400 mb-1">{{ movie.year }}</p>
+        <p class="movie-genre text-sm text-yellow-400 mb-2">{{ movie.genre }}</p>
+        <p class="movie-description text-sm text-gray-300">{{ movie.description }}</p>
+      </div>
     </div>
   </div>
 </template>
