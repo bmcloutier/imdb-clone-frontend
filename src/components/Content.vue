@@ -15,7 +15,7 @@ export default {
           id: 1,
           title: "Alien: Romulus",
           year: 2024,
-          genre: "horror",
+          genre: "Horror",
           description: "A group of young adults attempt to escape their awful world.",
           image: "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/06/alien-romulus-poster.jpg",
         },
@@ -23,8 +23,8 @@ export default {
           id: 2,
           title: "Prey",
           year: 2022,
-          genre: "horror",
-          description: "A native american fights for her life agains the most advanced killing machine.",
+          genre: "Horror",
+          description: "A native American fights for her life against the most advanced killing machine.",
           image: "https://i0.wp.com/screen-connections.com/wp-content/uploads/2023/08/Prey-4K.UHD_.Coverart.jpg",
         },
       ],
@@ -48,10 +48,57 @@ export default {
 </script>
 
 <template>
-  <main>
-    <MoviesIndex v-bind:movies="movies" />
-    <MoviesNew v-on:createMovie="handleCreateMovie" />
+  <main class="bg-gray-900 text-white min-h-screen py-8">
+    <div class="container mx-auto">
+      <h1 class="text-4xl font-bold text-center mb-8">Movie Collection</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div v-for="movie in movies" :key="movie.id" class="movie-card flex flex-col items-center text-center p-4">
+          <img :src="movie.image" alt="Movie Poster" class="movie-image mb-4 rounded-lg" />
+          <h2 class="movie-title text-2xl font-bold mb-2">{{ movie.title }}</h2>
+          <p class="movie-year text-lg text-gray-400 mb-1">{{ movie.year }}</p>
+          <p class="movie-genre text-sm text-yellow-400 mb-2">{{ movie.genre }}</p>
+          <p class="movie-description text-sm text-gray-300">{{ movie.description }}</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <MoviesNew v-on:createMovie="handleCreateMovie" />
+      </div>
+    </div>
   </main>
 </template>
 
-<style></style>
+<style scoped>
+.movie-card {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.movie-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.movie-title {
+  color: #ffffff;
+}
+
+.movie-year,
+.movie-genre,
+.movie-description {
+  color: #bbbbbb;
+}
+
+.movie-genre {
+  font-weight: bold;
+  color: #ffcc00;
+}
+</style>
