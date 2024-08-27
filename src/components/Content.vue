@@ -1,9 +1,11 @@
 <script>
 import MoviesIndex from "./MoviesIndex.vue";
+import MoviesNew from "./MoviesNew.vue";
 
 export default {
   components: {
     MoviesIndex,
+    MoviesNew,
   },
 
   data: function () {
@@ -28,12 +30,27 @@ export default {
       ],
     };
   },
+
+  methods: {
+    handleCreateMovie: function (params) {
+      axios
+        .post("http://localhost:5000/movies.json", params)
+        .then((response) => {
+          console.log("movies create", response);
+          this.movies.push(response.data);
+        })
+        .catch((error) => {
+          console.log("movies create error", error.response);
+        });
+    },
+  },
 };
 </script>
 
 <template>
   <main>
     <MoviesIndex v-bind:movies="movies" />
+    <MoviesNew v-on:createMovie="handleCreateMovie" />
   </main>
 </template>
 
