@@ -10,8 +10,10 @@ export default {
       <div class="flex items-center space-x-6">
         <a href="#" class="text-3xl font-bold tracking-wider text-yellow-400 hover:text-yellow-300">MyMovieSite</a>
         <div class="hidden md:flex space-x-6">
-          <a href="#" class="text-lg hover:text-yellow-300">Movies</a>
-          <a href="#" class="text-lg hover:text-yellow-300">Trending</a>
+          <RouterLink class="text-lg hover:text-yellow-300" to="/movies">All movies</RouterLink>
+          <RouterLink class="text-lg hover:text-yellow-300" to="/movies/new">Create movie</RouterLink>
+          <!-- <a href="#" class="text-lg hover:text-yellow-300">Movies</a>
+          <a href="#" class="text-lg hover:text-yellow-300">Trending</a> -->
         </div>
       </div>
       <div class="flex items-center space-x-4">

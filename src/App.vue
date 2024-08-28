@@ -16,7 +16,8 @@ export default {
 <template>
   <div>
     <Header />
-    <Content />
+    <RouterView />
+    <!-- <Content /> -->
     <Footer />
   </div>
 </template>
