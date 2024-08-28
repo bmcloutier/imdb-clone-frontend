@@ -176,7 +176,7 @@ export default {
 <template>
   <main class="bg-gray-900 text-white min-h-screen py-8">
     <div class="mt-8">
-      <MoviesNew v-on:createMovie="handleCreateMovie" />
+      <!-- <MoviesNew v-on:createMovie="handleCreateMovie" /> -->
       <MoviesIndex v-bind:movies="movies" />
     </div>
   </main>
