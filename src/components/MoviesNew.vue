@@ -2,25 +2,13 @@
 export default {
   data: function () {
     return {
-      newMovieParams: {
-        name: "",
-        image: "",
-        description: "",
-        year: "",
-        genre: "",
-      },
+      newMovieParams: {},
     };
   },
   methods: {
     handleSubmit: function () {
       this.$emit("createMovie", this.newMovieParams);
-      this.newMovieParams = {
-        name: "",
-        image: "",
-        description: "",
-        year: "",
-        genre: "",
-      };
+      this.newMovieParams = {};
     },
   },
 };
@@ -31,11 +19,11 @@ export default {
     <h1 class="text-3xl font-bold mb-6 text-center text-yellow-400">Add a New Movie</h1>
     <form v-on:submit.prevent="handleSubmit" class="space-y-6">
       <div>
-        <label for="name" class="block text-lg font-medium mb-2">Name:</label>
+        <label for="title" class="block text-lg font-medium mb-2">Title:</label>
         <input
           type="text"
-          id="name"
-          v-model="newMovieParams.name"
+          id="title"
+          v-model="newMovieParams.title"
           class="w-full p-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
         />
       </div>
