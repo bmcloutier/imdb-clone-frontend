@@ -9,6 +9,7 @@ export default {
     handleSubmit: function () {
       this.$emit("createMovie", this.newMovieParams);
       this.newMovieParams = {};
+      this.$router.push({ path: "/movies" });
     },
   },
 };

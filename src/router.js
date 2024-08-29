@@ -8,11 +8,17 @@ import MoviesNew from "./components/MoviesNew.vue";
 import Content from "./components/Content.vue";
 
 const routes = [
-  // { path: "/signup", component: Signup },
-  // { path: "/login", component: Login },
-  // { path: "/logout", component: LogoutLink },
-  { path: "/movies", component: Content },
-  { path: "/movies/new", component: MoviesNew },
+  {
+    path: "/content",
+    component: Content,
+    children: [
+      // { path: "/signup", component: Signup },
+      // { path: "/login", component: Login },
+      // { path: "/logout", component: LogoutLink },
+      { path: "/movies", component: MoviesIndex },
+      { path: "/movies/new", component: MoviesNew },
+    ],
+  },
 ];
 
 const router = createRouter({
